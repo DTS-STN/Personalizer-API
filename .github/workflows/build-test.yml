@@ -2,8 +2,7 @@ name: personalization poc
 on:
   push:
     branches:
-      - main
-      - 'SAEB-**'
+      - [ main ]
   pull_request:
     branches:
       - [ main ]
