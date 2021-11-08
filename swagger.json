@@ -1,0 +1,169 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",  
+      "title": "Azure Perosonalization Proof of Concept",
+      "description": "Details on all API endpoints for Azure Personalization POC",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3001",
+    "basePath": "/api/v1",
+    "tags": [
+      {
+        "name": "personalization poc front-end",
+        "description": "API for users in the system"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+
+    "paths": {
+      "/recommendation": {
+        "get": {
+          "tags": ["Get a recommendation"],
+          "summary": "Gets recommendation along with probability list",
+          "parameters": [
+             {
+                "name": "province",
+                "in": "query",
+                "required": true,
+                "type": "string",
+                "description": "required province parameter for getting a recommendation"
+
+              },
+              {
+                "name": "month",
+                "in": "query",
+                "required": true,
+                "type": "string",
+                "description": "required month parameter for getting a recommendation"
+
+              },
+              {
+                "name": "language",
+                "in": "query",
+                "required": true,
+                "type": "string",
+                "description": "required language parameter for getting a recommendation"
+
+              }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Recommendation"
+              }
+            },
+            "404": {
+                "description": "NOT FOUND",
+                "schema": {
+                    "$ref": "#/definitions/CodeMessage"
+                }
+            },
+            "500": {
+                "description": "INTERNAL SERVER ERROR",
+                "schema": {
+                    "$ref": "#/definitions/CodeMessage"
+                }
+            }
+          }
+        }
+      },
+      "/recommendation/reward": {
+        "parameters": [
+        ],
+        "put": {
+          "summary": "Update reward score for the eventId",
+          "tags": ["Update reward for an eventId returned by a recommendation"],
+          "parameters": [
+            {
+                "name": "updatereward",
+                "in": "body",
+                "required": true,
+                "description": "eventId returned from recommendation",
+                "schema": {
+                    "$ref": "#/definitions/UpdateReward"
+                  }
+              }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/CodeMessage"
+              }
+            },
+            "404": {
+                "description": "NOT FOUND",
+                "schema": {
+                    "$ref": "#/definitions/CodeMessage"
+                }
+            },
+            "304": {
+                "description": "NOT MODIFIED",
+                "schema": {
+                  "$ref": "#/definitions/CodeMessage"
+                }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+            "Recommendation": {
+                "required": ["recommendation", "eventId", "companies"],
+                "properties": {
+                  "eventId": {
+                    "type": "string",
+                    "uniqueItems": true
+                  },
+                  "recommendation": {
+                    "type": "string"
+                  },
+                  "rankings": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "probability": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+            },
+            "CodeMessage": {
+                "required": ["code", "message"],
+                "properties": {
+                  "code": {
+                    "type": "number",
+                    "uniqueItems": true
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                }
+            },
+            "UpdateReward": {
+                "required": ["eventId", "score"],
+                "properties": {
+                  "eventId": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "number"
+                  } 
+                }
+            }
+    }
+  
+}
