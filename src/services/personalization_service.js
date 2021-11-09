@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
-const { v4: uuidv4 } = require('uuid');
-const httpStatus = require('http-status');
-require('dotenv/config');
+const { v4: uuidv4 } = require("uuid");
+const httpStatus = require("http-status");
+require("dotenv/config");
 
 const CognitiveServicesCredentials =
-  require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
-const Personalizer = require('@azure/cognitiveservices-personalizer');
-const actions = require('./actions.json');
-const config = require('../config/config');
-const logger = require('../config/logger');
+  require("@azure/ms-rest-azure-js").CognitiveServicesCredentials;
+const Personalizer = require("@azure/cognitiveservices-personalizer");
+const actions = require("./actions.json");
+const config = require("../config/config");
+const logger = require("../config/logger");
 
 // create connection to personalizer end-point
 function createPersonalizerClient() {
@@ -28,7 +28,7 @@ async function createRank(req, res) {
   rankRequest.contextFeatures = getFeaturesList(
     req.query.province,
     req.query.month,
-    req.query.month,
+    req.query.language
   );
   // Get the actions list to choose from personalization with their features.
   rankRequest.actions = actions;
@@ -41,7 +41,7 @@ async function createRank(req, res) {
   await personalizerClient
     .rank(rankRequest)
     .then((rankResponse) => {
-      logger.info('Recommendation given');
+      logger.info("Recommendation given");
       const results = {
         eventId: rankRequest.eventId,
         recommendation: rankResponse.rewardActionId,
@@ -52,11 +52,11 @@ async function createRank(req, res) {
       res.end();
     })
     .catch((err) => {
-      logger.log('catch error for getRecommendation');
+      logger.log("catch error for getRecommendation");
       logger.error(err);
       res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
         status: httpStatus.INTERNAL_SERVER_ERROR,
-        errorMessage: 'Encountered error during processing your request',
+        errorMessage: "Encountered error during processing your request",
       });
       res.end();
     });
@@ -74,18 +74,18 @@ async function updateReward(body, res) {
   await personalizerClient.events
     .reward(body.eventId, rewardRequest)
     .then((result) => {
-      logger.info('Reward added');
+      logger.info("Reward added");
       res
         .status(httpStatus.OK)
-        .json({ status: httpStatus.OK, info: 'Reward added' });
+        .json({ status: httpStatus.OK, info: "Reward added" });
       res.end();
     })
     .catch((err) => {
       res.status(httpStatus.NOT_MODIFIED).json({
         status: httpStatus.NOT_MODIFIED,
-        errorMessage: 'Error encountered during reward update',
+        errorMessage: "Error encountered during reward update",
       });
-      logger.log('catch error reward');
+      logger.log("catch error reward");
       logger.error(err);
     });
 }
@@ -103,7 +103,7 @@ function getFeaturesList(province, month, language) {
 
 // for future use if need to be excluded any
 function getExcludedActionsList() {
-  return ['optional'];
+  return ["optional"];
 }
 
 module.exports = { createRank, updateReward };
