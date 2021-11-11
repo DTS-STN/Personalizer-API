@@ -1,23 +1,22 @@
 [
     {
-      "id": "https://www.sac-isc.gc.ca/eng/1582550638699/1582550666787",
+      "id": "https://www.canada.ca/en/revenue-agency/services/indigenous-peoples.html",
       "features": [
         {
-          "about": "First Nations and Inuit home and community care"
+          "about": "Taxes and benefits for Indigenous peoples"
         }
       ]
 
     },
     {
-      "id": "https://www.veterans.gc.ca/eng/health-support/physical-health-and-wellness/compensation-illness-injury/disability-benefits",
+      "id": "https://www.canada.ca/en/services/benefits/ei/ei-military-families.html",
       "features": [
         {
-          "about": "Disability benefits for veterans"
+          "about": "Employment Insurance: Extended parental benefit period for military families"
         }
       ]
 
     },
-    
     {
       "id": "https://www.canada.ca/en/employment-social-development/programs/ei/ei-list/quit-job.html",
       "features": [
@@ -96,3 +95,4 @@
     }
 
 ]
+
