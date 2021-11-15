@@ -22,7 +22,9 @@ const { value: envVars, error } = envVarsSchema
   .prefs({ errors: { label: "key" } })
   .validate(process.env);
 
-console.log("Config validation error: " + error.message);
+if (error) {
+  console.log("Config validation error: " + error.message);
+}
 
 module.exports = {
   port: envVars.PORT,
