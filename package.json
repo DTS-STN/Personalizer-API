@@ -1,0 +1,49 @@
+{
+  "name": "azure-personalizer-poc-api",
+  "version": "1.0.0",
+  "description": "This project connects to azure personalizer and produces JSON response for Front-end",
+  "main": "api.js",
+  "author": "Mohammed Kabir",
+  "license": "ISC",
+  "scripts": {
+    "start": "node ./src/api",
+    "dev": "nodemon ./src/api",
+    "test": "jest",
+    "lint" : "node node_modules/eslint/bin/eslint.js ./src ./tests"
+  },
+  "dependencies": {
+    "@azure/cognitiveservices-personalizer": "^2.0.1",
+    "@azure/ms-rest-azure-js": "^2.1.0",
+    "@azure/ms-rest-js": "^2.6.0",
+    "cross-env": "^7.0.3",
+    "cross-fetch": "^3.0.6",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "http-status": "^1.5.0",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "swagger-jsdoc": "^6.0.6",
+    "swagger-ui-express": "^4.1.6",
+    "uuid": "^8.3.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.5",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "fetch-mock": "^9.11.0",
+    "husky": "^5.1.1",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "supertest": "^6.1.3"
+  }
+}

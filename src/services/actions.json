@@ -1,0 +1,98 @@
+[
+    {
+      "id": "https://www.canada.ca/en/revenue-agency/services/indigenous-peoples.html",
+      "features": [
+        {
+          "about": "Taxes and benefits for Indigenous peoples"
+        }
+      ]
+
+    },
+    {
+      "id": "https://www.canada.ca/en/services/benefits/ei/ei-military-families.html",
+      "features": [
+        {
+          "about": "Employment Insurance: Extended parental benefit period for military families"
+        }
+      ]
+
+    },
+    {
+      "id": "https://www.canada.ca/en/employment-social-development/programs/ei/ei-list/quit-job.html",
+      "features": [
+        {
+          "about": "Employment insurance"
+        }
+      ]
+
+    },
+
+    {
+      "id": "https://www.canada.ca/en/employment-social-development/services/apprentices/grants.html",
+      "features": [
+        {
+          "about": "Apprenticeship grants"
+        }
+      ]
+
+    },
+
+    {
+      "id": "https://www.canada.ca/en/services/benefits/publicpensions/cpp/old-age-security/guaranteed-income-supplement.html",
+      "features": [
+        {
+          "about": "Guaranteed income supplement"
+        }
+      ]
+
+    },
+    {
+      "id": "https://www.nrcan.gc.ca/energy-efficiency/homes/canada-greener-homes-grant/23441",
+      "features": [
+        {
+          "about": "Canada Greener Homes Grant"
+        }
+      ]
+
+    },
+
+ 
+    {
+      "id": "https://www.canada.ca/en/services/benefits/ei/ei-maternity-parental.html",
+      "features": [
+        {
+          "about": "Maternity and parental leave"
+        }
+      ]
+
+    },
+    {
+      "id": "https://www.justice.gc.ca/eng/fund-fina/acf-fca/lsap-aeda.html",
+      "features": [
+        {
+          "about": "Legal studies for Aboriginal people"
+        }
+      ]
+
+    },
+    {
+      "id": "https://www.canada.ca/en/services/benefits/education/student-aid/grants-loans.html",
+      "features": [
+        {
+          "about": "Canada Student Loans"
+        }
+      ]
+
+    },
+    {
+      "id": "https://www.canada.ca/en/revenue-agency/services/subsidy/recovery-hiring-program.html",
+      "features": [
+        {
+          "about": "Canada recovery hiring program"
+        }
+      ]
+
+    }
+
+]
+
