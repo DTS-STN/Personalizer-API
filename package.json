@@ -1,15 +1,14 @@
 {
   "name": "azure-personalizer-poc-api",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "This project connects to azure personalizer and produces JSON response for Front-end",
   "main": "api.js",
-  "author": "Mohammed Kabir",
-  "license": "ISC",
+  "license": "none",
   "scripts": {
     "start": "node ./src/api",
     "dev": "nodemon ./src/api",
     "test": "jest",
-    "lint" : "node node_modules/eslint/bin/eslint.js ./src ./tests"
+    "lint": "node node_modules/eslint/bin/eslint.js ./src ./tests"
   },
   "dependencies": {
     "@azure/cognitiveservices-personalizer": "^2.0.1",
