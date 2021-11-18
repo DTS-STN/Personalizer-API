@@ -1,9 +1,9 @@
 name: personalization poc
 on:
   push:
-  pull_request:
     branches:
-      - main
+     - main
+  pull_request:
 jobs:
   build:
     runs-on: ubuntu-latest
