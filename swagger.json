@@ -74,18 +74,18 @@
           }
         }
       },
-      "/recommendation/reward": {
+      "/recommendation/reward/{eventId}": {
         "parameters": [
         ],
-        "put": {
+        "patch": {
           "summary": "Update reward score for the eventId",
           "tags": ["Update reward for an eventId returned by a recommendation"],
           "parameters": [
-            {
+             {
                 "name": "updatereward",
                 "in": "body",
                 "required": true,
-                "description": "eventId returned from recommendation",
+                "description": "score",
                 "schema": {
                     "$ref": "#/definitions/UpdateReward"
                   }
@@ -154,11 +154,8 @@
                 }
             },
             "UpdateReward": {
-                "required": ["eventId", "score"],
+                "required": ["score"],
                 "properties": {
-                  "eventId": {
-                    "type": "string"
-                  },
                   "score": {
                     "type": "number"
                   } 

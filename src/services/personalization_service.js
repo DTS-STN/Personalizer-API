@@ -64,15 +64,15 @@ async function createRank(req, res) {
 }
 
 // update reward depending on user action on recommendation
-async function updateReward(body, res) {
+async function updateReward(req, res) {
   const personalizerClient = createPersonalizerClient();
 
   const rewardRequest = {
-    value: body.score,
+    value: req.body.score,
   };
 
   await personalizerClient.events
-    .reward(body.eventId, rewardRequest)
+    .reward(req.params.eventId, rewardRequest)
     .then((result) => {
       logger.info("Reward added");
       res

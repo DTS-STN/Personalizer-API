@@ -36,5 +36,5 @@ $ npm run start
 
  
 ## Swagger 
-Swagger is available `<URL>/api-docs`. 
+Swagger is available `<URL>/api/v1/api-docs`. 
 
