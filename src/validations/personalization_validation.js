@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require("joi");
 
 const getRecommendation = {
   query: Joi.object().keys({
@@ -9,8 +9,10 @@ const getRecommendation = {
 };
 
 const updateReward = {
-  body: Joi.object().keys({
+  params: Joi.object().keys({
     eventId: Joi.string().min(1).required(),
+  }),
+  body: Joi.object().keys({
     score: Joi.number().positive().min(0).max(1).required(),
   }),
 };
